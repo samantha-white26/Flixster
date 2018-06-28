@@ -29,14 +29,24 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
 
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
+        //create the view using the item_movie layout
+        View movieView = inflater.inflate(R.layout.item_movie, parent, false);
 
 
-        return null;
+        //return view wrapped in a viewholder
+        return new ViewHolder(movieView);
     }
 
     //binds an infalted view to a new item
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        //get the movie data at the specified position
+        Movie movie = movies.get(position);
+        // populate the view with the movie data
+        holder.tvTitle.setText(movie.getTitle());
+        holder.tvOverview.setText(movie.getOverview());
+
+        //TODO -set image using Glide
 
     }
 
