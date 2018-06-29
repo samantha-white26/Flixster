@@ -37,6 +37,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Describe any challenges encountered while building the app.
+No huge problems in the implementation but it was a bit difficult to follow all of the video steps and understand everything cohesively and understand the movie parts. I plan to go to through and try to implement the youtube video on my own to fully understand the process of setting up the API.
 
 ## Open-source libraries used
 
