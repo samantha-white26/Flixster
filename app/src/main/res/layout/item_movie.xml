@@ -23,7 +23,8 @@
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/ivPosterImage"
         android:text="Movie Title"
-        android:textAppearance="@android:style/TextAppearance.Large" />
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:fontFamily="@font/limelight"/>
 
     <TextView
         android:id="@+id/tvOverview"
@@ -32,6 +33,7 @@
         android:layout_below="@+id/tvTitle"
         android:layout_toEndOf="@+id/ivPosterImage"
         android:layout_toRightOf="@+id/ivPosterImage"
+        android:fontFamily="sans-serif-condensed"
         android:text="TextView"
         tools:text="Movie overview and synoposis" />
 </RelativeLayout>

@@ -22,7 +22,8 @@
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/ivBackdropImage"
         android:text="Movie Title"
-        android:textAppearance="@android:style/TextAppearance.Medium" />
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        android:fontFamily="@font/limelight"/>
 
     <TextView
         android:id="@+id/tvOverview"
