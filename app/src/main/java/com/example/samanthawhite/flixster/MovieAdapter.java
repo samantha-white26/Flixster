@@ -1,6 +1,7 @@
 package com.example.samanthawhite.flixster;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,9 @@ import android.widget.TextView;
 
 import com.example.samanthawhite.flixster.models.Config;
 import com.example.samanthawhite.flixster.models.Movie;
+import com.example.samanthawhite.flixster.models.MovieDetailsActivity;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -101,7 +105,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     }
 
     //create the viewholder as a static inner class
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         //Track view objects
         ImageView ivPosterImage;
@@ -109,16 +113,39 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         TextView tvTitle;
         TextView tvOverview;
 
-
+        @Override
+        public void onClick(View view) {
+            //get item position
+            int position = getAdapterPosition();
+            //make sure position is valid (is in the view)
+            if (position != RecyclerView.NO_POSITION){
+                //get the movie at that position
+                Movie movie = movies.get(position);
+                //create an intent for an activity
+                Intent intent = new Intent(context, MovieDetailsActivity.class);
+                //set up so the information we want to pass will be passed to the new activtiy
+                intent.putExtra(Movie.class.getSimpleName(), Parcels.wrap(movie));
+                //show the activity
+                context.startActivity(intent);
+            }
+        }
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             //lookup view objects by id
-            ivPosterImage = (ImageView) itemView.findViewById(R.id.ivPosterImage);
-            ivBackdropImage = (ImageView) itemView.findViewById(R.id.ivBackdropImage);
+            ivPosterImage = (ImageView) itemView.findViewById(R.id.ivPosterImage); //remember @Nullable
+            ivBackdropImage = (ImageView) itemView.findViewById(R.id.ivBackdropImage); //remember @Nullable
             tvOverview = (TextView) itemView.findViewById(R.id.tvOverview);
             tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
+
+            //be sure to import butterknife
+            //@Nullable @BindView
+            //@Nullable @BindView
+            //@BindView
+            //@BindView
+
+            itemView.setOnClickListener(this);
         }
     }
 }
