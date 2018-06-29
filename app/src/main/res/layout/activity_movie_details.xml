@@ -12,9 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:fontFamily="@font/limelight"
         android:text="TextView"
-        android:textAppearance="@android:style/TextAppearance.Large"
-        android:fontFamily="@font/limelight"/>
+        android:textAppearance="@android:style/TextAppearance.Large" />
 
     <RatingBar
         android:id="@+id/rbVoteAverage"
