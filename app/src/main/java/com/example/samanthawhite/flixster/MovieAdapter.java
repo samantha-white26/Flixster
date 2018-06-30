@@ -3,6 +3,7 @@ package com.example.samanthawhite.flixster;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,8 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
@@ -98,7 +101,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
 
 
 
-    // retursn the toal number of items in the list
+    // return the toal number of items in the list
     @Override
     public int getItemCount() {
         return movies.size();
@@ -108,10 +111,15 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         //Track view objects
-        ImageView ivPosterImage;
-        ImageView ivBackdropImage;
-        TextView tvTitle;
-        TextView tvOverview;
+        @Nullable @BindView(R.id.ivBackdropImage) ImageView ivBackdropImage;
+        @Nullable @BindView(R.id.ivPosterImage) ImageView ivPosterImage;
+        @BindView(R.id.tvTitle) TextView tvTitle;
+        @BindView(R.id.tvOverview) TextView tvOverview;
+
+//        ImageView ivPosterImage;
+//        ImageView ivBackdropImage;
+//        TextView tvTitle;
+//        TextView tvOverview;
 
         @Override
         public void onClick(View view) {
@@ -125,6 +133,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                 Intent intent = new Intent(context, MovieDetailsActivity.class);
                 //set up so the information we want to pass will be passed to the new activtiy
                 intent.putExtra(Movie.class.getSimpleName(), Parcels.wrap(movie));
+                //wrapping the image to pass to movie details activity
+                intent.putExtra("image_poster", Parcels.wrap(config));
                 //show the activity
                 context.startActivity(intent);
             }
@@ -133,17 +143,19 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            //lookup view objects by id
-            ivPosterImage = (ImageView) itemView.findViewById(R.id.ivPosterImage); //remember @Nullable
-            ivBackdropImage = (ImageView) itemView.findViewById(R.id.ivBackdropImage); //remember @Nullable
-            tvOverview = (TextView) itemView.findViewById(R.id.tvOverview);
-            tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
+            ButterKnife.bind(this, itemView);
 
-            //be sure to import butterknife
-            //@Nullable @BindView
-            //@Nullable @BindView
-            //@BindView
-            //@BindView
+//            //lookup view objects by id
+//            ivPosterImage = (ImageView) itemView.findViewById(R.id.ivPosterImage); //remember @Nullable
+//            ivBackdropImage = (ImageView) itemView.findViewById(R.id.ivBackdropImage); //remember @Nullable
+//            tvOverview = (TextView) itemView.findViewById(R.id.tvOverview);
+//            tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
+//
+//            //be sure to import butterknife
+//            //@Nullable @BindView
+//            //@Nullable @BindView
+//            //@BindView
+//            //@BindView
 
             itemView.setOnClickListener(this);
         }

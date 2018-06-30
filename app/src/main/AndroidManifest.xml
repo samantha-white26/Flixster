@@ -18,11 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".models.MovieDetailsActivity"></activity>
+        <activity android:name=".models.MovieDetailsActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <activity android:name=".MovieTrailerActivity"></activity>
     </application>
 
 </manifest>

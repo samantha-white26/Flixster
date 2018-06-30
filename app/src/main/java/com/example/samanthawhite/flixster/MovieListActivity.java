@@ -113,6 +113,10 @@ public class MovieListActivity extends AppCompatActivity {
 
 
 
+
+
+
+
     //access config endpoint, get secure http and poster size
     private void getConfiguration() {
         //create url
