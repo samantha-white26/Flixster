@@ -2,7 +2,7 @@
 
 **Name of your app** shows the latest movies currently playing in theaters. The app utilizes the Movie Database API to display images and basic information about these movies to the user.
 
-Time spent: **11** hours spent in total
+Time spent: **14** hours spent in total
 
 ## User Stories
 
@@ -30,7 +30,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-https://i.imgur.com/CDfcl7n.gifv
+https://i.imgur.com/KAOvzUf.gifv
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
